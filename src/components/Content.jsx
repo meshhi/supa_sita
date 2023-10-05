@@ -1,4 +1,4 @@
-import Carousel from "./Carousel";
+import Slider from "./Slider/Slider";
 
 const Content = () => {
 return(
@@ -6,7 +6,7 @@ return(
         <div clasName="start_carousel">
             <div className="container flex justify-center items-center my-40">
                 <div class="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8">
-                    <Carousel></Carousel>
+                    <Slider></Slider>
                 </div>
             </div>
         </div>

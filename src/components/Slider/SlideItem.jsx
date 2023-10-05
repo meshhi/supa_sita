@@ -1,18 +1,22 @@
-const Montage = () => {
+const SlideItem = ({content}) => {
     return (
-            <div className={`carousel_item carousel_item__montage`}>
+            <div className='slide-item'>
                 <div class="grid md:grid-cols-2 gap-4 md:gap-8 xl:gap-20 md:items-center">
                     <div>
-                        <h1 class="block text-2xl font-bold text-gray-800 sm:text-4xl lg:text-5xl lg:leading-tight dark:text-white">Мы осуществляем монтаж и строительство для предприятий и организаций</h1>
+                        <h1 class="block text-2xl font-bold text-gray-800 sm:text-4xl lg:text-5xl lg:leading-tight dark:text-white">{
+                            content.header
+                        }</h1>
                         <p class="mt-3 text-lg text-gray-800 dark:text-gray-400 lg:text-2xl">
 
-                            Строим ТП, КЛ, ВЛ 0.4-10кВ</p>
+                        {
+                            content.description
+                        }</p>
 
                     </div>
 
 
                     <div class="relative ml-4">
-                        <img class="w-full rounded-md" src="img_1.jpg" alt="Image Description"></img>
+                        <img class="w-full rounded-md" src={content.imagePath} alt="Image Description"></img>
                         <div class="absolute inset-0 -z-[1] bg-gradient-to-tr from-gray-200 via-white/0 to-white/0 w-full h-full rounded-md mt-4 -mb-4 mr-4 -ml-4 lg:mt-6 lg:-mb-6 lg:mr-6 lg:-ml-6 dark:from-slate-800 dark:via-slate-900/0 dark:to-slate-900/0"></div>
 
 
@@ -45,4 +49,4 @@ const Montage = () => {
     )
 }
 
-export default Montage
+export default SlideItem;
