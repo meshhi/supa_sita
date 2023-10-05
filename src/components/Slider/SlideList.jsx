@@ -10,8 +10,8 @@ export default function SlidesList() {
       className="slide-list"
       style={{ transform: `translateX(-${slideNumber * 100}%)` }}
     >
-      {items.map((slide, index) => (
-        <SlideItem key={index} data={slide} />
+      {items.map((content) => (
+        <SlideItem content={content} />
       ))}
     </div>
   );

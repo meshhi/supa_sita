@@ -7,7 +7,15 @@ import SlidesList from "./SlideList";
 export const SliderContext = createContext();
 
 const Slider = ({ width, height, autoPlay, autoPlayTime }) => {
-    const [items, setItems] = useState([]); // данные для слайдера
+    const [items, setItems] = useState([{
+        header: 'some',
+        description: 'some description',
+        imagePath: 'img_1.jpg',
+    },{
+        header: 'some2',
+        description: 'some description2',
+        imagePath: 'img_2.jpg',
+    }]); // данные для слайдера
     const [slide, setSlide] = useState(0); // текущий номер слайдера
 
     useEffect(() => {
@@ -60,9 +68,9 @@ const Slider = ({ width, height, autoPlay, autoPlayTime }) => {
                     items,
                 }}
             >
-                {/* <Arrows />
+                <Arrows />
                 <SlidesList />
-                <Dots /> */}
+                <Dots />
             </SliderContext.Provider>
         </div>
     )
