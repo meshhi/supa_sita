@@ -3,17 +3,23 @@ import React, { useEffect, useState, createContext } from "react";
 import Arrows from "./Arrows";
 import Dots from "./Dots";
 import SlidesList from "./SlideList";
+import ArrowLeft from "./ArrowLeft";
+import ArrowRight from "./ArrowRight";
 
 export const SliderContext = createContext();
 
 const Slider = ({ width, height, autoPlay, autoPlayTime }) => {
     const [items, setItems] = useState([{
-        header: 'some',
-        description: 'some description',
+        header: 'Мы помогаем организациям и предприятиям решить вопрос с энергоснабжением',
+        description: '',
         imagePath: 'img_1.jpg',
-    },{
-        header: 'some2',
-        description: 'some description2',
+    }, {
+        header: 'От проекта до готового решения',
+        description: '',
+        imagePath: 'img_2.jpg',
+    }, {
+        header: 'Строим кабельные и воздушные линии, а также трансформаторные подстанции 0.4-10 кВ',
+        description: '',
         imagePath: 'img_2.jpg',
     }]); // данные для слайдера
     const [slide, setSlide] = useState(0); // текущий номер слайдера
@@ -55,24 +61,28 @@ const Slider = ({ width, height, autoPlay, autoPlayTime }) => {
     }, [items.length, slide]); // when images uploaded or slide changed manually we start timer
 
     return (
-        <div
-            className='slider'
-            style={{ width, height }}
+        <SliderContext.Provider
+            value={{
+                goToSlide,
+                changeSlide,
+                slidesCount: items.length,
+                slideNumber: slide,
+                items,
+            }}
         >
-            <SliderContext.Provider
-                value={{
-                    goToSlide,
-                    changeSlide,
-                    slidesCount: items.length,
-                    slideNumber: slide,
-                    items,
-                }}
-            >
-                <Arrows />
-                <SlidesList />
-                <Dots />
-            </SliderContext.Provider>
-        </div>
+            <div className="slider-container flex flex-row items-center gap-0.5">
+                <ArrowLeft></ArrowLeft>
+                <div
+                    className='slider'
+                    style={{ width, height }}
+                >
+
+                    <SlidesList />
+                    <Dots />
+                </div>
+                <ArrowRight></ArrowRight>
+            </div>
+        </SliderContext.Provider>
     )
 }
 
